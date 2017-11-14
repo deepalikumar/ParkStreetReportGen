@@ -1,3 +1,4 @@
+"use strict"; 
 // Parks and street of a town.
 // parks : 3
 // streets: 4
@@ -18,14 +19,14 @@ class Element {
 }
 
 class Park extends Element {
-    constructor(name, buildYear, area, numebrOfTree) {
+    constructor(name, buildYear, area, numberOfTree) {
         super(name, buildYear);
         this.area = area;
-        this.numebrOfTree = numberOfTree;
+        this.numberOfTree = numberOfTree;
     }
 
     treeDensity() {
-       const density = this.numebrOfTree / this.area;
+       const density = this.numberOfTree / this.area;
        console.log(`${this.name} has a tree density of ${density} tress per square km.`); 
     }
 
@@ -39,10 +40,10 @@ class Park extends Element {
 }
 
 class Street extends Element {
-    constructor(name, buildYear, length, size = 3) {
+    constructor(name, buildYear, length, size) {
         super(name, buildYear);
         this.length = length;
-        this.size - size;
+        this.size = size;
     }
 
     classifyStreet() {
@@ -63,6 +64,22 @@ new Street('4th street', 2015, 0.8), new Street('Sunset Boulvard'), 1982, 2.5, 5
 
 
 
+function reportParks(p) {
+    console.log("----PARKS REPORT----");
+    // Density
+    p.forEach( el => el.treeDensity()) ; 
+    // 2. average age of each town's park = sum of all ages / number of the parks
+   
+    
+}
+
+function reportStreets(s) {
+
+}
+
+
+reportParks(allParks);
+reportStreets(allStreets);
 
 
 
