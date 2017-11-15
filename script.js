@@ -47,12 +47,12 @@ class Street extends Element {
     }
 
     classifyStreet() {
-        const classification = new map();
+        const classification = new Map();
         classification.set(1, 'tiny');
         classification.set(2, 'small');
-        classification.set(1, 'normal');
-        classification.set(1, 'big');
-        classification.set(1, 'huge');
+        classification.set(3, 'normal');
+        classification.set(4, 'big');
+        classification.set(5, 'huge');
         console.log(`${this.name}, build in ${this.buildYear}, is a ${classification.get(this.size)} Street`);
     }
 }
@@ -90,7 +90,7 @@ function reportStreets(s) {
     var totalLength = calc(s.map(el => el.length));
     console.log(`Our ${s.length} streets have a total length of ${totalLength[0]} km, with a average of ${totalLength[1]} km`);
     // size and classification of the all streets: tiny\small\normal\big\huge. default is normal
-    s.forEach(el => el.classification());    
+    s.forEach(el => el.classifyStreet());    
 
 }
 
