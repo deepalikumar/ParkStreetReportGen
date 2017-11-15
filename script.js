@@ -62,14 +62,24 @@ const allParks = [new Park('Green Park', 1987, 0.2, 215), new Park('Yellow park'
 const allStreets = [new Street('Ocean Avenue', 1999, 1.1, 4), new Street('Evergreen Street', 2008, 2.7, 2), 
 new Street('4th street', 2015, 0.8), new Street('Sunset Boulvard'), 1982, 2.5, 5];
 
-
+function calc(arr) {
+    const sum = arr.reduce((prev, curr, index) => prev + curr, 0 );
+    return [sum , sum/ arr.length];
+}
 
 function reportParks(p) {
     console.log("----PARKS REPORT----");
+    var sum = [];
     // Density
     p.forEach( el => el.treeDensity()) ; 
     // 2. average age of each town's park = sum of all ages / number of the parks
-   
+    const ages = p.map(el => new Date().getFullYear() - el.buildYear);
+
+    sum = calc(ages);
+    console.log(`Our  ${p.length} parks have an average of ${sum[1]} years`);
+    // 3. name of park which has more than 1000 trees
+    const i = p.map( el => el.numberOfTree).findIndex(el => el >= 1000);
+    console.log(`${p[i].name} has more than 1000 tress  `)
     
 }
 
