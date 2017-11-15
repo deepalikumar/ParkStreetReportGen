@@ -60,7 +60,7 @@ class Street extends Element {
 const allParks = [new Park('Green Park', 1987, 0.2, 215), new Park('Yellow park', 1894, 0.9,3541),
  new Park('Oak Park', 1953, 0.4, 949)];
 const allStreets = [new Street('Ocean Avenue', 1999, 1.1, 4), new Street('Evergreen Street', 2008, 2.7, 2), 
-new Street('4th street', 2015, 0.8), new Street('Sunset Boulvard'), 1982, 2.5, 5];
+new Street('4th street', 2015, 0.8, 3), new Street('Sunset Boulvard'), 1982, 2.5, 5];
 
 function calc(arr) {
     const sum = arr.reduce((prev, curr, index) => prev + curr, 0 );
@@ -84,6 +84,11 @@ function reportParks(p) {
 }
 
 function reportStreets(s) {
+    console.log("----STREETS REPORT----");
+    // total and average length of the town's street
+    
+    var totalLength = calc(s.map(el => el.length));
+    console.log(`Our ${s.length} streets have a total length of ${totalLength[0]} km, with a average of ${totalLength[1]} km`);
 
 }
 
